@@ -1,0 +1,40 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "bootstrap-flatly": {
+        "version": "0.0.4"
+      },
+      "autoform": {
+        "version": "0.12.0"
+      }
+    },
+    "packages": {
+      "bootstrap-flatly": {
+        "git": "https://github.com/grokbot/meteor-bootstrap-flatly.git",
+        "tag": "v0.0.4",
+        "commit": "53dcf5c4aad152e9b88dcc0f8d1dfbb1985200d7"
+      },
+      "autoform": {
+        "git": "https://github.com/aldeed/meteor-autoform.git",
+        "tag": "v0.12.0",
+        "commit": "24b0284425e446f2d88760a81052eefe74a20bbf"
+      },
+      "simple-schema": {
+        "git": "https://github.com/aldeed/meteor-simple-schema.git",
+        "tag": "v0.5.1",
+        "commit": "a29956b34d03a4591dbd0eaed9d37009ef48b8db"
+      },
+      "collection2": {
+        "git": "https://github.com/aldeed/meteor-collection2.git",
+        "tag": "v0.4.1",
+        "commit": "a9ffc9b285c3af8ad631f9cda4851b0ffc30c5ce"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.6.0",
+        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+      }
+    }
+  }
+}

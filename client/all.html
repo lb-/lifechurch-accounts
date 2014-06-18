@@ -1,0 +1,17 @@
+<head>
+  <title>accounts</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        {{>insertCardUsagesForm}}
+      </div>
+    </div>
+  </div>
+</body>
+
+<template name="insertCardUsagesForm">
+  {{> quickForm collection="CardUsages" id="insertCardUsagesForm" type="insert"}}
+</template>
