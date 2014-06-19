@@ -1,6 +1,7 @@
 {
   "packages": {
     "bootstrap-flatly": {},
-    "autoform": {}
+    "autoform": {},
+    "user-session": {}
   }
 }

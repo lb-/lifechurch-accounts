@@ -1,5 +1,5 @@
 <head>
-  <title>accounts</title>
+  <title>Accounts</title>
 </head>
 
 <body>
@@ -83,9 +83,9 @@
       <h3>Notes</h3>
       {{#autoForm schema=Schemas.cardUsage id="someID" type="method" meteormethod="test"}}
         {{#if usage.signInMode}}
-          {{> afQuickField name="signInComments"}}
+          {{> afQuickField name="signedInComments"}}
         {{else}}
-          {{> afQuickField name="signOutComments"}}
+          {{> afQuickField name="signedOutComments"}}
         {{/if}}
       {{/autoForm}}
     </div>
