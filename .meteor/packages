@@ -9,3 +9,5 @@ insecure
 bootstrap-flatly
 autoform
 collection2
+accounts-ui
+accounts-google
