@@ -13,4 +13,13 @@ Meteor.startup(function() {
     console.log(CardUsages.find({_id:newCardUsage}).fetch());
     var sachaCard = Cards.insert({name: 'Sacha Williams'});
   }
+  // first, remove configuration entry in case service is already configured
+  ServiceConfiguration.configurations.remove({
+    service: "google"
+  });
+  ServiceConfiguration.configurations.insert({
+    service: "google",
+    clientId: Meteor.settings.googleLogin.clientId,
+    secret: Meteor.settings.googleLogin.secret,
+  });
 });
