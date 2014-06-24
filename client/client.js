@@ -35,7 +35,6 @@ UI.registerHelper('ordinalNumber', function( number ) {
 
 Template.card.events({
   'click .btn-action' : function( event, template ) {
-    //console.log(this, event, template);
     var cardId = this._id;
     var action;
     if ( this.available ) {
@@ -43,19 +42,13 @@ Template.card.events({
     } else {
       action = 'sign-in';
     }
-    //data-action="{{#if available}}sign-out{{else}}sign-in{{/if}}"
-    //console.log(this.available);
-    //var action = $( event.target ).data('action');
-
     var userId = Meteor.userId();
-    //console.log(cardId, action, userId);
     Meteor.call( 'cardUseAction',
       action, cardId, userId, function( error, result  ) {
         if ( error ) {
           console.log( 'error', error );
         } else {
-          //Router.go( 'card', { action: action , _id: result } );
-          console.log( result );
+          Router.go( 'cardUse', { action: action , _id: result } );
         }
       })
   }
