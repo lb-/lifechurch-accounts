@@ -1,18 +1,47 @@
 <head>
-  <title>Accounts</title>
+  <title>Life Church Accounts</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
-  <div class="container">
-    {{>nav}}
-    <section id="cards">
-      {{>cards}}
-    </section>
-    <section id="cardUsage">
-      {{>cardUsage usage=usage}}
-    </section>
-  </div>
-</body>
+<template name="main">
+  <body>
+    <div class="container">
+      {{> nav}}
+      <h3>{{title}}</h3>
+      {{> yield}}
+      {{> footer}}
+    </div>
+  </body>
+</template>
+
+<template name="home">
+  <section id="cards">
+    {{>cards}}
+  </section>
+  <section id="cardUsage">
+    {{>cardUsage usage=usage}}
+  </section>
+</template>
+
+<template name="profile">
+  {{user}}
+</template>
+<template name="footer">
+  <footer class="row">
+    <div class="col-sm-3">
+      <p class="text-center">Version {{config.version}}</p>
+    </div>
+    <div class="col-sm-6">
+      <p class="text-center">{{config.name}}</p>
+    </div>
+    <div class="col-sm-3">
+      <p class="text-center">Built with <a href="http://www.meteor.com">Meteor</a></p>
+    </div>
+  </footer>
+</template>
+
 
 <template name="insertCardUsagesForm">
   {{> quickForm collection="CardUsages" id="insertCardUsagesForm" type="insert"}}
@@ -63,7 +92,7 @@
         <li class="list-group-item">
           <h4 class="list-group-item-heading">{{ordinalNumber i}} Receipt</h4>
           <p class="list-group-item-text">
-            {{>receiptForm}}
+            {{>receipt}}
           </p>
         </li>
         {{/each}}
@@ -95,6 +124,16 @@
   </div>
 </template>
 
+<template name="receipt">
+  <p>Date Field MUST HAVE EASY SELECT BUTTONS</p>
+  <div class="btn-toolbar" role="toolbar">
+    <button type="button" class="btn btn-default btn-xs">Today</button>
+    <button type="button" class="btn btn-default btn-xs">Yesterday</button>
+    <button type="button" class="btn btn-default btn-xs">Sunday</button>
+    <button type="button" class="btn btn-default btn-xs">Saturday</button>
+  </div>
+</template>
+
 <template name="nav">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
@@ -105,13 +144,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Petty Cash Card</a>
+        <a class="navbar-brand" href="{{pathFor 'home'}}">{{config.name}}</a>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-4">
-        {{> loginButtons}}
-        {{#if user}}
-        <p class="navbar-text">Signed in as {{user.profile.name}}</p>
-        {{/if}}
+        <ul class="nav navbar-nav">
+          {{> accountButtons}}
+        </ul>
       </div>
     </div>
   </nav>

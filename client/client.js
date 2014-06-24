@@ -1,3 +1,5 @@
+UI.registerHelper("config", Config);
+
 UI.registerHelper("user", function() {
   var user = Meteor.user();
   //console.log(user);
@@ -8,7 +10,7 @@ UI.registerHelper("Schemas", Schemas);
 
 UI.registerHelper('usage', {
   designation: 'Sacha Williams',
-  signInMode: false,
+  signInMode: true,
   receipts: [
     { i: 1, },
     { i: 2, },
