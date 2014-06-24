@@ -16,6 +16,12 @@
       },
       "accounts-entry": {
         "version": "0.7.3"
+      },
+      "handlebar-helpers": {
+        "version": "0.1.1"
+      },
+      "underscore-string-latest": {
+        "version": "2.3.3"
       }
     },
     "packages": {
@@ -43,6 +49,16 @@
         "git": "https://github.com/Differential/accounts-entry.git",
         "tag": "v0.7.3",
         "commit": "7facaa045d3720eeeba3420c28e48d5709188fe3"
+      },
+      "handlebar-helpers": {
+        "git": "https://github.com/raix/Meteor-handlebar-helpers.git",
+        "tag": "v0.1.1",
+        "commit": "0b407ab65e7c1ebd53d71aef0de2e2c1d21a597c"
+      },
+      "underscore-string-latest": {
+        "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
+        "tag": "v2.3.3",
+        "commit": "4a5d70eee48fbd90a6e6fc78747250d704a0b3bb"
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",

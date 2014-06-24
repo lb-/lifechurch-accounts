@@ -14,15 +14,9 @@ Schemas.cardUses = new SimpleSchema([Schemas.baseSchema,{
   //     return 'test';
   //   }
   // },
-  // purpose: {
-  //   type: String,
-  //   label: 'Purpose',
-  //   optional: true,
-  // },
   signOutAt: {
     type: Date,
     label: "Signed Out",
-    optional: false,
   },
   signInAt: {
     type: Date,
@@ -39,11 +33,11 @@ Schemas.cardUses = new SimpleSchema([Schemas.baseSchema,{
     label: 'Sign In Comments',
     optional: true,
   },
-  // signOutComments: {
-  //   type: String,
-  //   label: 'Sign Out Comments',
-  //   optional: true,
-  // },
+  purpose: {
+    type: String,
+    label: 'Purpose',
+    optional: true,
+  },
 }]);
 
 CardUses = new Meteor.Collection("cardUses", {

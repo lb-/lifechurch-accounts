@@ -105,10 +105,16 @@
 <template name="cardUse">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h2 class="panel-title"><span class="label label-default">Sign In</span> {{usage.designation}} <small>Petty Cash Card</small></h2>
+      <h2 class="panel-title">
+        <span class="label label-default">
+          {{strHumanize action}}
+        </span>
+        {{card.designation}}
+        <small>Petty Cash Card</small>
+      </h2>
     </div>
     <div class="panel-body">
-      {{#if usage.signInMode}}
+      {{#if $eq action "sign-in"}}
       <h3>Receipts <small>3 Total</small></h3>
       <ul class="list-group">
         {{#each usage.receipts}}

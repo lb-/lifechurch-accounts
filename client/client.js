@@ -8,16 +8,6 @@ UI.registerHelper("user", function() {
 
 UI.registerHelper("Schemas", Schemas);
 
-UI.registerHelper('usage', {
-  designation: 'Sacha Williams',
-  signInMode: true,
-  receipts: [
-    { i: 1, },
-    { i: 2, },
-  ],
-});
-
-
 UI.registerHelper('enabled', function(check) {
   if ( check === null ) {
     return 'disabled';

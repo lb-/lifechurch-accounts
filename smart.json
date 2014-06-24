@@ -4,6 +4,8 @@
     "autoform": {},
     "user-session": {},
     "iron-router": {},
-    "accounts-entry": {}
+    "accounts-entry": {},
+    "handlebar-helpers": {},
+    "underscore-string-latest": {}
   }
 }

@@ -14,3 +14,5 @@ service-configuration
 iron-router
 accounts-entry
 moment
+handlebar-helpers
+underscore-string-latest
