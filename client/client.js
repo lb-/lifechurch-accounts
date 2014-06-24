@@ -17,21 +17,6 @@ UI.registerHelper('usage', {
   ],
 });
 
-UI.registerHelper('cards', [
-  {
-    designation: 'Sacha Williams',
-    available: true,
-    previousUsageDescription: 'Last used 20 minutes ago by Joe',
-    currentUsageDescription: '',
-  },
-  {
-    designation: 'Anthea Robinson',
-    available: false,
-    previousUsageDescription: 'Last used 2 days ago by Andrew',
-    currentUsageDescription: 'Signed out 3 hours ago by Jackson',
-  }
-]);
-
 
 UI.registerHelper('enabled', function(check) {
   if ( check === null ) {
@@ -46,4 +31,32 @@ UI.registerHelper('ordinalNumber', function( number ) {
    return n+(s[(v-20)%10]||s[v]||s[0]);
  }
  return getOrdinal( number );
+})
+
+Template.card.events({
+  'click .btn-action' : function( event, template ) {
+    //console.log(this, event, template);
+    var cardId = this._id;
+    var action;
+    if ( this.available ) {
+      action = 'sign-out';
+    } else {
+      action = 'sign-in';
+    }
+    //data-action="{{#if available}}sign-out{{else}}sign-in{{/if}}"
+    //console.log(this.available);
+    //var action = $( event.target ).data('action');
+
+    var userId = Meteor.userId();
+    //console.log(cardId, action, userId);
+    Meteor.call( 'cardUseAction',
+      action, cardId, userId, function( error, result  ) {
+        if ( error ) {
+          console.log( 'error', error );
+        } else {
+          //Router.go( 'card', { action: action , _id: result } );
+          console.log( result );
+        }
+      })
+  }
 })

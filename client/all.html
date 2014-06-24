@@ -20,14 +20,15 @@
   <section id="cards">
     {{>cards}}
   </section>
-  <section id="cardUsage">
-    {{>cardUsage usage=usage}}
+  <section id="cardUses">
+  {{>cardUses}}
   </section>
 </template>
 
 <template name="profile">
   {{user}}
 </template>
+
 <template name="footer">
   <footer class="row">
     <div class="col-sm-3">
@@ -55,31 +56,53 @@
   </div>
 </template>
 
+<template name="cardUses">
+  <h2>Card Uses</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Signed Out</th>
+        <th>Signed In</th>
+      </tr>
+    </thead>
+    {{#each cardUses}}
+    <tr>
+      <td>{{_id}}</td>
+      <td>{{momo signOutAt 'fromNow'}}</td>
+      <td>{{momo signInAt 'fromNow'}}</td>
+    </tr>
+    {{/each}}
+  </table>
+</template>
+
 <template name="card">
   <div class="col-sm-6 col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h2 class="panel-title">{{designation}} <small>Petty Cash Card</small></h2>
+        <h2 class="panel-title">{{designation}} <small>{{description}}</small></h2>
       </div>
       <div class="panel-body">
-        {{#if available}}
-          <button class="btn btn-success btn-block" {{enabled user}}>Sign Out</button>
-        {{else}}
-          <button class="btn btn-default btn-block">Sign In</button>
-        {{/if}}
+        <button class="btn {{#if available}}btn-success{{else}}button-default{{/if}} btn-block btn-action" {{enabled user}}>
+          {{#if available}}
+            Sign Out
+          {{else}}
+            Sign In
+          {{/if}}
+        </button>
       </div>
       <div class="panel-footer">
         {{#if available}}
-          {{previousUsageDescription}}
+          {{previousUseDescription}}
         {{else}}
-          {{currentUsageDescription}}
+          {{currentUseDescription}}
         {{/if}}
       </div>
     </div>
   </div>
 </template>
 
-<template name="cardUsage">
+<template name="cardUse">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h2 class="panel-title"><span class="label label-default">Sign In</span> {{usage.designation}} <small>Petty Cash Card</small></h2>
@@ -105,16 +128,16 @@
       </ul>
       {{else}}
       <h3>Purpose</h3>
-        {{#autoForm schema=Schemas.cardUsage id="someID" type="method" meteormethod="test"}}
+        {{#autoForm schema=Schemas.cardUses id="someID" type="method" meteormethod="test"}}
           {{> afQuickField name="purpose"}}
         {{/autoForm}}
       {{/if}}
       <h3>Notes</h3>
-      {{#autoForm schema=Schemas.cardUsage id="someID" type="method" meteormethod="test"}}
+      {{#autoForm schema=Schemas.cardUses id="someID" type="method" meteormethod="test"}}
         {{#if usage.signInMode}}
-          {{> afQuickField name="signedInComments"}}
+          {{> afQuickField name="signInComment"}}
         {{else}}
-          {{> afQuickField name="signedOutComments"}}
+          {{> afQuickField name="signOutComment"}}
         {{/if}}
       {{/autoForm}}
     </div>

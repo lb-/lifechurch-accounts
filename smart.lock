@@ -6,7 +6,7 @@
         "version": "0.0.4"
       },
       "autoform": {
-        "version": "0.12.0"
+        "version": "0.13.0"
       },
       "user-session": {
         "version": "0.2.0"
@@ -26,8 +26,8 @@
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
-        "tag": "v0.12.0",
-        "commit": "24b0284425e446f2d88760a81052eefe74a20bbf"
+        "tag": "v0.13.0",
+        "commit": "3f294ddf3ed0acae714d5ceb8a806b25cdcd0197"
       },
       "user-session": {
         "git": "https://github.com/BenjaminRH/meteor-user-session.git",
