@@ -17,6 +17,7 @@ Schemas.cardUses = new SimpleSchema([Schemas.baseSchema,{
   signOutAt: {
     type: Date,
     label: "Signed Out",
+    addToEmail: true,
   },
   signInAt: {
     type: Date,
