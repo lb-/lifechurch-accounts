@@ -62,13 +62,16 @@
     <thead>
       <tr>
         <th>ID</th>
+        <td>Who</td>
         <th>Signed Out</th>
         <th>Signed In</th>
+
       </tr>
     </thead>
     {{#each cardUses}}
     <tr>
       <td>{{_id}}</td>
+      <td>{{_user user 'name'}}</td>
       <td>{{momo signOutAt 'fromNow'}}</td>
       <td>{{momo signInAt 'fromNow'}}</td>
     </tr>

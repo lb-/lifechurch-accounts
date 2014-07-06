@@ -5,7 +5,7 @@ Schemas.cardUses = new SimpleSchema([Schemas.baseSchema,{
   },
   user: {
     type: String,
-    label: 'Name & Email',//will be a user reference _id
+    label: 'User Id',//will be a user reference _id
   },
   // userTest: {
   //   type: String,
