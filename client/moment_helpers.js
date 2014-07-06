@@ -1,4 +1,4 @@
-UI.registerHelper('momo', function( date, action ) {
+UI.registerHelper( 'momo' , function( date, action ) {
   var thisMoment;
   if ( _.isDate( date ) ) {
     thisMoment = moment( date );
