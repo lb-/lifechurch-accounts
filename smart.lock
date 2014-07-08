@@ -6,7 +6,7 @@
         "version": "0.0.4"
       },
       "autoform": {
-        "version": "0.13.0"
+        "version": "0.14.0"
       },
       "user-session": {
         "version": "0.2.0"
@@ -32,8 +32,8 @@
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
-        "tag": "v0.13.0",
-        "commit": "3f294ddf3ed0acae714d5ceb8a806b25cdcd0197"
+        "tag": "v0.14.0",
+        "commit": "30de032833052ea61e9d37bca5523264309d4478"
       },
       "user-session": {
         "git": "https://github.com/BenjaminRH/meteor-user-session.git",
@@ -67,8 +67,8 @@
       },
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",
-        "tag": "v0.4.1",
-        "commit": "a9ffc9b285c3af8ad631f9cda4851b0ffc30c5ce"
+        "tag": "v0.4.2",
+        "commit": "4ff4b707bec8be434919730bf101325adb215444"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
