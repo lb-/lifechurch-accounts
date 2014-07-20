@@ -1,26 +1,36 @@
-var receiptImagesS3 = new FS.Store.S3( 'receiptsS3', {
-  region: Meteor.settings.S3.region,
-  bucket: Meteor.settings.S3.bucket,
-  accessKeyId: Meteor.settings.S3.accessKeyId,
-  secretAccessKey: Meteor.settings.S3.secretAccessKey,
-  ACL: Meteor.settings.S3.ACL,
-});
+if ( Meteor.isServer ) {
+  receiptImagesS3 = new FS.Store.S3( 'receiptsS3', {
+    region: Meteor.settings.S3.region,
+    bucket: Meteor.settings.S3.bucket,
+    accessKeyId: Meteor.settings.S3.accessKeyId,
+    secretAccessKey: Meteor.settings.S3.secretAccessKey,
+    ACL: Meteor.settings.S3.ACL,
+  });
+} else {
+  receiptImagesS3 = new FS.Store.S3( 'receiptsS3', {bucket: 'client'});
+}
 
 Receipts = new FS.Collection( 'receipts', {
   stores: [ receiptImagesS3 ],
-  // filter: {
-  //   allow: {
-  //     contentTypes: ['image/*', 'application/pdf']
-  //   }
-  // },
+  filter: {
+    allow: {
+      contentTypes: ['image/*', 'application/pdf']
+    }
+  },
 });
 
 Receipts.allow({
   insert: function( userId, doc ) {
-    return true;
+    if ( userId ) {
+      return true;
+    }
+    return false;
   },
   update: function( userId, doc ) {
-    return true;
+    if ( userId ) {
+      return true;
+    }
+    return false;
   }
 });
 
