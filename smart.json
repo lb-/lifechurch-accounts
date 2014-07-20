@@ -6,6 +6,10 @@
     "iron-router": {},
     "accounts-entry": {},
     "handlebar-helpers": {},
-    "underscore-string-latest": {}
+    "underscore-string-latest": {},
+    "S3-Progress": {},
+    "collectionFS": {},
+    "cfs-s3": {},
+    "Dropzonejs": {}
   }
 }

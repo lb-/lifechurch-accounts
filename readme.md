@@ -6,9 +6,7 @@ First section to develop, will replace a mixture of Expensify and another form b
 #### Tasks
 - [x] Initial state set up
 - [x] Sign In & Sign out (basic) working
+- [ ] Keep it simple (receipts attached only, no other meta data)
+- [ ] Keep it simple (usage fields; name, department, 'specific purpose', approval code, receipts)
 - [ ] Sign Out form
-- [ ] File Uploads (to google drive folder owned by accounts)
-  - not the google drive picker because must be 'owned' by accounts
-  - Maybe: http://atmospherejs.com/package/Dropzonejs
-  - Maybe: http://atmospherejs.com/package/blueimp-file-upload
-  - Need: https://developers.google.com/drive/web/manage-uploads
+- [x] Receipt Uploads https://github.com/CollectionFS/Meteor-CollectionFS using s3

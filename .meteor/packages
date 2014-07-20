@@ -16,3 +16,7 @@ accounts-entry
 moment
 handlebar-helpers
 underscore-string-latest
+collectionFS
+cfs-s3
+Dropzonejs
+cfs-gridfs

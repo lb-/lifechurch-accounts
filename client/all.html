@@ -65,7 +65,6 @@
         <td>Who</td>
         <th>Signed Out</th>
         <th>Signed In</th>
-
       </tr>
     </thead>
     {{#each cardUses}}
@@ -106,52 +105,55 @@
 </template>
 
 <template name="cardUse">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2 class="panel-title">
-        <span class="label label-default">
-          {{strHumanize action}}
-        </span>
-        {{card.designation}}
-        <small>Petty Cash Card</small>
-      </h2>
-    </div>
-    <div class="panel-body">
-      {{#if $eq action "sign-in"}}
-      <h3>Receipts <small>3 Total</small></h3>
-      <ul class="list-group">
-        {{#each usage.receipts}}
-        <li class="list-group-item">
-          <h4 class="list-group-item-heading">{{ordinalNumber i}} Receipt</h4>
-          <p class="list-group-item-text">
-            {{>receipt}}
-          </p>
-        </li>
-        {{/each}}
-        <li class="list-group-item">
-          <h4 class="list-group-item-heading">Add Receipt</h4>
-          <p class="list-group-item-text">
-            <button class="btn btn-default">Add Receipt</button>
-          </p>
-        </li>
-      </ul>
-      {{else}}
-      <h3>Purpose</h3>
-        {{#autoForm schema=Schemas.cardUses id="someID" type="method" meteormethod="test"}}
-          {{> afQuickField name="purpose"}}
-        {{/autoForm}}
-      {{/if}}
-      <h3>Notes</h3>
-      {{#autoForm schema=Schemas.cardUses id="someID" type="method" meteormethod="test"}}
-        {{#if usage.signInMode}}
-          {{> afQuickField name="signInComment"}}
-        {{else}}
-          {{> afQuickField name="signOutComment"}}
-        {{/if}}
-      {{/autoForm}}
-    </div>
-    <div class="panel-footer">
-      $30.00 total (2 receipts)
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">
+            <span class="label label-default">{{strHumanize action}}</span>
+            &nbsp;{{card.designation}}&nbsp;
+            <small>Petty Cash Card</small>
+          </h2>
+        </div>
+        <div class="panel-body">
+          {{#if $eq action "sign-in"}}
+          <h3>Receipts <small>3 Total</small></h3>
+          <ul class="list-group">
+            {{#each receipts}}
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">{{ordinalNumber i}} Receipt</h4>
+              <p class="list-group-item-text">
+                {{>receipt}}
+              </p>
+            </li>
+            {{/each}}
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">Add Receipt</h4>
+              {{> dropzone url='#' id='receipt-dropzone'}}
+              <!-- <p class="list-group-item-text">
+                <button class="btn btn-default btn-block add-receipt">Add Receipt</button>
+              </p> -->
+            </li>
+          </ul>
+          {{else}}
+          <h3>Purpose</h3>
+            {{#autoForm schema=Schemas.cardUses id="someID" type="method" meteormethod="test"}}
+              {{> afQuickField name="purpose"}}
+            {{/autoForm}}
+          {{/if}}
+          <h3>Notes</h3>
+          {{#autoForm schema=Schemas.cardUses id="someID" type="method" meteormethod="test"}}
+            {{#if usage.signInMode}}
+              {{> afQuickField name="signInComment"}}
+            {{else}}
+              {{> afQuickField name="signOutComment"}}
+            {{/if}}
+          {{/autoForm}}
+        </div>
+        <div class="panel-footer">
+          $30.00 total (2 receipts)
+        </div>
+      </div>
     </div>
   </div>
 </template>

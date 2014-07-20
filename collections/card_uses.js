@@ -28,6 +28,9 @@ Schemas.cardUses = new SimpleSchema([Schemas.baseSchema,{
     type: String,
     label: 'Sign Out Comments',
     optional: true,
+    autoform: {
+      rows: 3,
+    }
   },
   signInComment: {
     type: String,
@@ -36,7 +39,7 @@ Schemas.cardUses = new SimpleSchema([Schemas.baseSchema,{
   },
   purpose: {
     type: String,
-    label: 'Purpose',
+    label: 'Specific Purpose',
     optional: true,
   },
 }]);
