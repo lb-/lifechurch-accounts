@@ -2,7 +2,6 @@ UI.registerHelper("config", Config);
 
 UI.registerHelper("user", function() {
   var user = Meteor.user();
-  //console.log(user);
   return user;
 });
 
@@ -43,77 +42,32 @@ Template.card.events({
       })
   }
 });
-
-// Template.cardUse.events({
-//   'click .add-receipt' : function( event, template ) {
-//     console.log('add receipt', this, event, template);
-//     var action = 'add-receipt'
-//     var cardUseId = this.data.cardUse._id;
-//     var userId = Meteor.userId();
-//     Meteor.call( 'carUseAction', action, cardUseId, userId, function( error, result ) {
-//       if ( error ) {
-//         console.log( 'error', error );
-//       }
-//     });
-//   },
-// });
-// Template.main.events({
-//   'change #receipt-upload': function( event, template ) {
-//     console.log(event);
-//     FS.Utility.eachFile( event, function(file) {
-//       console.log('file',file);
-//       Receipts.insert( file, function( error, fileObj ) {
-//         if (error) {
-//           console.log('error', error);
-//         } else {
-//           console.log('file added', fileObj);
-//         }
-//         //If !err, we have inserted new doc with ID fileObj._id, and
-//         //kicked off the data upload using HTTP
-//       });
-//     });
-//   },
-//   // 'change #receipt-dropzone' : function( event, template ) {
-//   //   console.log('test');
-//   // }
-// });
-
 Template.cardUse.created = function() {
   Dropzone.options.receiptDropzone = {
     init: function() {
       this.on("addedfile", function( file ) {
-        console.log( file );
+        var self = this;
+        var file = file;
+        //change to 'uploading' by removing class
+        file.previewElement.classList.remove('dz-success');
         Receipts.insert( file, function( error, fileObj ) {
           if (error) {
-            console.log('error', error);
+            //manually change to error & add error message
+            var node, _i, _len, _ref, _results;
+            var message = error.message;
+            file.previewElement.classList.add('dz-error');
+            _ref = file.previewElement.querySelectorAll("[data-dz-errormessage]");
+            _results = [];
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+              node = _ref[_i];
+              _results.push(node.textContent = message);
+            }
           } else {
+            file.previewElement.classList.add('dz-success');
             console.log('file added', fileObj);
           }
-          //If !err, we have inserted new doc with ID fileObj._id, and
-          //kicked off the data upload using HTTP
         });
       });
     }
   };
 };
-
-//   var dropzoneOptions = {
-//     init: function() {
-//       this.on("addedfile", function(file) { alert("Added file."); });
-//     },
-//   };
-//   var receiptDropzone = new Dropzone( '#receipt-dropzone', {
-//     url: '#',
-//   });
-//   //Dropzone.options = dropzoneOptions;
-//   // $('#receipt-dropzone').dropzone({
-//   //   init: function() {
-//   //     this.on("addedfile", function(file) { alert("Added file."); });
-//   //   },
-//   // });
-//   // window.Dropzone.discover();
-//   // Dropzone.options.myAwesomeDropzone = {
-//   // init: function() {
-//   //   this.on("addedfile", function(file) { alert("Added file."); });
-//   // }
-// };
