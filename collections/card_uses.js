@@ -2,10 +2,12 @@ Schemas.cardUses = new SimpleSchema([Schemas.baseSchema,{
   card: {
     type: String,
     label: 'Card Id',
+    optional: false,
   },
   user: {
     type: String,
     label: 'User Id',//will be a user reference _id
+    optional: false,
   },
   // userTest: {
   //   type: String,
@@ -17,7 +19,8 @@ Schemas.cardUses = new SimpleSchema([Schemas.baseSchema,{
   signOutAt: {
     type: Date,
     label: "Signed Out",
-    addToEmail: true,
+    addToEmail: false,
+    optional: true,
   },
   signInAt: {
     type: Date,
@@ -37,10 +40,29 @@ Schemas.cardUses = new SimpleSchema([Schemas.baseSchema,{
     label: 'Sign In Comments',
     optional: true,
   },
+  department: {
+    type: String,
+    label: 'Department',
+    optional: true,
+    autoform: {
+      placeholder: 'Church / Life Massive / Switch'
+    }
+  },
   purpose: {
     type: String,
     label: 'Specific Purpose',
     optional: true,
+    autoform: {
+      placeholder: 'Decorations for Carnival Night'
+    }
+  },
+  approvalCode: {
+    type: String,
+    label: 'Approval Code',
+    optional: true,
+    autoform:  {
+      placeholder: 'PX14-ABCD'
+    }
   },
 }]);
 

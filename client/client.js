@@ -48,6 +48,7 @@ Template.cardUse.created = function() {
       this.on("addedfile", function( file ) {
         var self = this;
         var file = file;
+        file.cardUse = 'joe';
         //change to 'uploading' by removing class
         file.previewElement.classList.remove('dz-success');
         Receipts.insert( file, function( error, fileObj ) {

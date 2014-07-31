@@ -20,8 +20,8 @@
   <section id="cards">
     {{>cards}}
   </section>
-  <section id="cardUses">
-  {{>cardUses}}
+  <section id="cardUsesSummary">
+  {{>cardUsesSummary}}
   </section>
 </template>
 
@@ -43,9 +43,8 @@
   </footer>
 </template>
 
-
 <template name="insertCardUsagesForm">
-  {{> quickForm collection="CardUsages" id="insertCardUsagesForm" type="insert"}}
+  {{> quickForm collection="CardUses" id="insertCardUsesForm" type="method" meteormethod='cardUseUpdate'}}
 </template>
 
 <template name="cards">
@@ -56,8 +55,8 @@
   </div>
 </template>
 
-<template name="cardUses">
-  <h2>Card Uses</h2>
+<template name="cardUsesSummary">
+  <h2>Card Uses Summary</h2>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -116,38 +115,48 @@
           </h2>
         </div>
         <div class="panel-body">
-          {{#if $eq action "sign-in"}}
-          <h3>Receipts <small>3 Total</small></h3>
-          <ul class="list-group">
-            {{#each receipts}}
-            <li class="list-group-item">
-              <h4 class="list-group-item-heading">{{ordinalNumber i}} Receipt</h4>
-              <p class="list-group-item-text">
-                {{>receipt}}
-              </p>
-            </li>
-            {{/each}}
-            <li class="list-group-item">
-              <h4 class="list-group-item-heading">Add Receipt</h4>
-              {{> dropzone url='#' id='receipt-dropzone'}}
-              <!-- <p class="list-group-item-text">
-                <button class="btn btn-default btn-block add-receipt">Add Receipt</button>
-              </p> -->
-            </li>
-          </ul>
-          {{else}}
-          <h3>Purpose</h3>
-            {{#autoForm schema=Schemas.cardUses id="someID" type="method" meteormethod="test"}}
-              {{> afQuickField name="purpose"}}
-            {{/autoForm}}
-          {{/if}}
-          <h3>Notes</h3>
-          {{#autoForm schema=Schemas.cardUses id="someID" type="method" meteormethod="test"}}
+          {{#autoForm collection='CardUses' doc=cardUse id='cardUseForm' type="method" meteormethod="cardUseUpdate"}}
+          <fieldset>
             {{#if usage.signInMode}}
-              {{> afQuickField name="signInComment"}}
+            <div id="sign-in-fields">
+              <h3>Receipts <small>3 Total</small></h3>
+              <ul class="list-group">
+                {{#each receipts}}
+                <li class="list-group-item">
+                  <h4 class="list-group-item-heading">{{ordinalNumber i}} Receipt <small>{{cardUse}}</small></h4>
+                  <p class="list-group-item-text">
+                    {{>receipt}}
+                  </p>
+                </li>
+                {{/each}}
+                <li class="list-group-item">
+                  <h4 class="list-group-item-heading">Add Receipt</h4>
+                  {{> dropzone url='#' id='receipt-dropzone'}}
+                  <!-- <p class="list-group-item-text">
+                    <button class="btn btn-default btn-block add-receipt">Add Receipt</button>
+                  </p> -->
+                </li>
+              </ul>
+            </div>
             {{else}}
-              {{> afQuickField name="signOutComment"}}
+            <div id="sign-out-fields">
+              <h3>Purpose</h3>
+                {{> afQuickField name='purpose'}}
+                {{> afQuickField name='department'}}
+                {{> afQuickField name='approvalCode'}}
+            </div>
             {{/if}}
+            <div id="notes-fields">
+              <h3>Notes</h3>
+              {{#if usage.signInMode}}
+                {{> afQuickField name='signInComment'}}
+              {{else}}
+                {{> afQuickField name='signOutComment'}}
+              {{/if}}
+            </div>
+          </fieldset>
+          <h3>Finish</h3>
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
           {{/autoForm}}
         </div>
         <div class="panel-footer">
