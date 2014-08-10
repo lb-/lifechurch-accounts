@@ -14,15 +14,13 @@ runFixtures = function() {
   }
 
   // Create 'cards'
-  // To do - these names should come from some settings
-  if ( Cards.find({name: 'Anthea Robinson'}).count() === 0 ) {
-    console.log('Fixtures: No Anthea Robinson Card, creating card');
-    var antheaCard = Cards.insert({name: 'Anthea Robinson', });
-  }
-  if ( Cards.find({name: 'Sacha Williams'}).count() === 0 ) {
-    console.log('Fixtures: No Sacha Williams Card, creating card');
-    var sachaCard = Cards.insert({name: 'Sacha Williams'});
-  }
+  var cardNames = Meteor.settings.cardNames || [chance.name(), chance.name()];
+  _.each( cardNames, function( cardName, index, list ) {
+    if ( Cards.find({name: cardName}).count() === 0 ) {
+      console.log('Fixtures: No ' + cardName + ', creating card');
+      var antheaCard = Cards.insert({name: cardName, });
+    }
+  });
 
   // Create initial card uses
   if ( CardUses.find({}).count() === 0 ) {
