@@ -34,6 +34,9 @@
       },
       "Dropzonejs": {
         "version": "3.10.2-rev01"
+      },
+      "chance": {
+        "version": "1.0.2"
       }
     },
     "packages": {
@@ -91,6 +94,11 @@
         "git": "https://github.com/devonbarrett/meteor-dropzone.git",
         "tag": "v3.10.2-rev01",
         "commit": "561e6110aa8487003f926a4eb7d4d5520a3a365b"
+      },
+      "chance": {
+        "git": "https://github.com/jvanveen/meteor-chance.git",
+        "tag": "v1.0.2",
+        "commit": "c06db16783744e5c1f4c36668a14240086caa1c7"
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",

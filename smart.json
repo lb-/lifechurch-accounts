@@ -10,6 +10,7 @@
     "S3-Progress": {},
     "collectionFS": {},
     "cfs-s3": {},
-    "Dropzonejs": {}
+    "Dropzonejs": {},
+    "chance": {}
   }
 }
