@@ -8,6 +8,7 @@ First section to develop, will replace a mixture of Expensify and another form b
 ### Tasks
 - [x] Initial state set up
 - [x] Sign In & Sign out (basic) working
+- [x] When not signed in, user helper cannot see user
 - [ ] Keep it simple (receipts attached only, no other meta data)
 - [ ] Keep it simple (usage fields; name, department, 'specific purpose', approval code, receipts)
 - [ ] Sign Out form

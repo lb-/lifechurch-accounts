@@ -49,7 +49,7 @@
 
 <template name="cards">
   <div class="row">
-    {{#each cards}}
+    {{#each cardsWithUses}}
       {{>card}}
     {{/each}}
   </div>
@@ -61,7 +61,7 @@
     <thead>
       <tr>
         <th>ID</th>
-        <td>Who</td>
+        <td>Used By</td>
         <th>Signed Out</th>
         <th>Signed In</th>
       </tr>
@@ -69,7 +69,7 @@
     {{#each cardUses}}
     <tr>
       <td>{{_id}}</td>
-      <td>{{_user user 'name'}}</td>
+      <td>{{_user usedBy 'name'}}</td>
       <td>{{momo signOutAt 'fromNow'}}</td>
       <td>{{momo signInAt 'fromNow'}}</td>
     </tr>

@@ -4,7 +4,7 @@ Schemas.cardUses = new SimpleSchema([Schemas.baseSchema,{
     label: 'Card Id',
     optional: false,
   },
-  user: {
+  usedBy: {
     type: String,
     label: 'User Id',//will be a user reference _id
     optional: false,

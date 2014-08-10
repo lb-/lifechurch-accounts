@@ -9,3 +9,7 @@ Meteor.publish( 'allUsers', function() {
 Meteor.publish( 'receipts', function() {
   return Receipts.find( {} );
 });
+
+Meteor.publish( 'cards', function() {
+  return Cards.find( {} );
+});

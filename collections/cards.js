@@ -1,8 +1,16 @@
 Schemas.card = new SimpleSchema([Schemas.baseSchema,{
-  name: {
+  designation: {
     type: String,
-    label: 'Card Name',
-  }
+    label: 'Card Designation',
+  },
+  lastDigits: {
+    type: String,
+    label: 'Last Three Digits of Card',
+  },
+  description: {
+    type: String,
+    label: 'Description',
+  },
 }]);
 
 Cards = new Meteor.Collection("cards", {
