@@ -114,10 +114,10 @@
             <small>Petty Cash Card</small>
           </h2>
         </div>
-        <div class="panel-body">
-          {{#autoForm collection='CardUses' doc=cardUse id='cardUseForm' type="method" meteormethod="cardUseUpdate"}}
+        {{#if usage.signInMode}}
+        <div class="panel-body" id="cardUseSignInBody">
+          {{#autoForm schema=Schemas.cardUseGeneral doc=cardUse id='cardUseSignIn' type='method' meteormethod='cardUseUpdate'}}
           <fieldset>
-            {{#if usage.signInMode}}
             <div id="sign-in-fields">
               <h3>Receipts <small>3 Total</small></h3>
               <ul class="list-group">
@@ -138,27 +138,20 @@
                 </li>
               </ul>
             </div>
-            {{else}}
-            <div id="sign-out-fields">
-              <h3>Purpose</h3>
-                {{> afQuickField name='purpose'}}
-                {{> afQuickField name='department'}}
-                {{> afQuickField name='approvalCode'}}
-            </div>
-            {{/if}}
             <div id="notes-fields">
               <h3>Notes</h3>
-              {{#if usage.signInMode}}
-                {{> afQuickField name='signInComment'}}
-              {{else}}
-                {{> afQuickField name='signOutComment'}}
-              {{/if}}
+              {{> afQuickField name='signInComment'}}
             </div>
           </fieldset>
           <h3>Finish</h3>
           <button type="submit" class="btn btn-primary btn-block">Submit</button>
           {{/autoForm}}
         </div>
+        {{else}}
+        <div class="panel-body" id="cardUseSignOutBody">
+          {{> quickForm schema=Schemas.cardSignOut id='cardUseSignOut' type='method' meteormethod='cardUseUpdate'}}
+        </div>
+        {{/if}}
         <div class="panel-footer">
           $30.00 total (2 receipts)
         </div>

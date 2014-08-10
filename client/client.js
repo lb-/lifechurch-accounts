@@ -72,3 +72,11 @@ Template.cardUse.created = function() {
     }
   };
 };
+//
+// Template.cardUse.helpers({
+//   cardUseSchema: function () {
+//     if (this.action) {
+//       return Schemas.cardUseGeneral;
+//     }
+//   }
+// });
