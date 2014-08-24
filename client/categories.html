@@ -1,21 +1,89 @@
 <template name="categories">
   <div>
     <input type="text" id="search" class="form-control" placeholder="Search">
-    {{session 'totalCategories'}} Total
+    {{getLength categories}} Total, Showing {{getLength filteredCategories}}
+    <p>
+      <ul class="list-inline">
+        {{#if $.Session.get 'searchEntry'}}
+        <li>Search:</li>
+        <li>
+          <span class="label label-info clear-search-entry">
+            {{$.Session.get 'searchEntry'}} <i class="fa fa-times-circle"></i>
+          </span>
+        </li>
+        {{/if}}
+        <li>Types:</li>
+        {{#each types}}
+        <li>
+          <span class="label toggle-type {{#if this.exclude}}label-default{{else}}label-success{{/if}}">
+            {{this.name}}
+            <i class="fa {{#if this.exclude}}fa-circle-o{{else}}fa-dot-circle-o{{/if}}"></i>
+          </span>
+        </li>
+        {{/each}}
+      </ul>
+    </p>
   </div>
-  {{#each filteredCategories}}
-    {{> category}}
-  {{/each}}
+  <!--{{> cardView items=filteredCategories}}-->
+  {{> tableView items=filteredCategories}}
 </template>
 
-<template name="category">
-  <div class="col-sm-6 col-lg-4">
+<template name="tableView">
+  <table class="table table-bordered">
+    <tbody>
+      {{#each items}}
+        {{> itemRow}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="itemRow">
+  <tr>
+    <td>{{name}}</td>
+    <td>{{type}}</td>
+    <td>
+      {{#if bsb}}
+      <ul class="list-inline">
+        <li>BSB: {{bsb}}</li>
+        <li>Account: {{bankAccountNumber}}</li>
+        <li>Account Name: {{bankDisplayName}}</li>
+      </ul>
+      {{/if}}
+    </td>
+    <td>{{#if inbuilt}}<span class="label label-default">In Built</span>{{/if}}</td>
+    <td>{{#if isBankAccount}}<span class="label label-default">Bank Account</span>{{/if}}</td>
+  </tr>
+</template>
+
+<template name="cardView">
+  <div class="row">
+  {{#each items}}
+    {{> itemCard}}
+  {{/each}}
+  </div>
+</template>
+
+<template name="itemCard">
+  <div class="col-sm-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">{{name}} <span class="label label-default pull-right">{{type}}</span></h3>
+        <h2 class="panel-title nowrap">{{type}} {{name}}</h2>
       </div>
       <div class="panel-body">
-        Panel content
+        {{#if bsb}}
+        <ul class="list-inline">
+          <li>BSB: {{bsb}}</li>
+          <li>Account: {{bankAccountNumber}}</li>
+          <li>Account Name: {{bankDisplayName}}</li>
+        </ul>
+        {{/if}}
+      </div>
+      <div class="panel-footer">
+        <span class="label label-info">{{type}}</span>
+        {{#if inbuilt}}<span class="label label-default">In Built</span>{{/if}}
+        {{#if isBankAccount}}<span class="label label-default">Bank Account</span>{{/if}}
+        <button class="btn btn-xs btn-primary pull-right"><i class="fa fa-info-circle"></i></button>
       </div>
     </div>
   </div>

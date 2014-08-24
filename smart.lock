@@ -6,7 +6,7 @@
         "version": "0.0.5"
       },
       "autoform": {
-        "version": "0.16.1"
+        "version": "0.17.1"
       },
       "user-session": {
         "version": "0.2.0"
@@ -15,7 +15,7 @@
         "version": "0.8.2"
       },
       "accounts-entry": {
-        "version": "0.8.0"
+        "version": "0.8.1"
       },
       "handlebar-helpers": {
         "version": "0.1.1"
@@ -37,6 +37,9 @@
       },
       "chance": {
         "version": "1.0.2"
+      },
+      "font-awesome": {
+        "version": "4.1.0"
       }
     },
     "packages": {
@@ -47,8 +50,8 @@
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
-        "tag": "v0.16.1",
-        "commit": "34a447fd3a1b3164c78f865aabbac3ddc2d033fb"
+        "tag": "v0.17.1",
+        "commit": "a4688e7d77019a68ef43c2a303e905748beeb860"
       },
       "user-session": {
         "git": "https://github.com/BenjaminRH/meteor-user-session.git",
@@ -62,8 +65,8 @@
       },
       "accounts-entry": {
         "git": "https://github.com/Differential/accounts-entry.git",
-        "tag": "v0.8.0",
-        "commit": "cf7f7d0ecc285824bc2748e305f5d693df99b4ae"
+        "tag": "v0.8.1",
+        "commit": "3102c0641cab394ce4c3e54b655c85ec1610c092"
       },
       "handlebar-helpers": {
         "git": "https://github.com/raix/Meteor-handlebar-helpers.git",
@@ -100,6 +103,11 @@
         "tag": "v1.0.2",
         "commit": "c06db16783744e5c1f4c36668a14240086caa1c7"
       },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v4.1.0",
+        "commit": "ce6b1e92715d1938babc5d69c655c17e387f5926"
+      },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",
         "tag": "v0.7.0",
@@ -112,8 +120,8 @@
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
-        "tag": "v2.6.0",
-        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+        "tag": "v2.8.1",
+        "commit": "722ea63783d594341023836b7d418ab2567dab8c"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
@@ -142,8 +150,8 @@
       },
       "roles": {
         "git": "https://github.com/alanning/meteor-roles.git",
-        "tag": "v1.2.10",
-        "commit": "7ccb35de0a6cb0c9a0c3666badd04757e39c09a6"
+        "tag": "v1.2.11",
+        "commit": "2d7dc91848ec874d3a0852c77f462d0fae749de5"
       },
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",

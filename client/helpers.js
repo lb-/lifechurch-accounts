@@ -1,3 +1,11 @@
+// using handlebar-helpers
+// UI.registerHelper('length', function(array) {
+//   if ( _.isArray(array) ) {
+//     return array.length;
+//   }
+//   return 0;
+// });
+
 UI.registerHelper('session', function(key) {
   return Session.get(key);
 })
