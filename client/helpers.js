@@ -1,3 +1,7 @@
+UI.registerHelper('session', function(key) {
+  return Session.get(key);
+})
+
 UI.registerHelper('S3url', function( fileObj ) {
   var fileObj = fileObj || this;
   // this is a hack but works for now

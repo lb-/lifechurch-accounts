@@ -1,0 +1,22 @@
+<template name="categories">
+  <div>
+    <input type="text" id="search" class="form-control" placeholder="Search">
+    {{session 'totalCategories'}} Total
+  </div>
+  {{#each filteredCategories}}
+    {{> category}}
+  {{/each}}
+</template>
+
+<template name="category">
+  <div class="col-sm-6 col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{name}} <span class="label label-default pull-right">{{type}}</span></h3>
+      </div>
+      <div class="panel-body">
+        Panel content
+      </div>
+    </div>
+  </div>
+</template>
