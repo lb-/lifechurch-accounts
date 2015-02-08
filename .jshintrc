@@ -150,6 +150,7 @@
     //"Kadira": false,
     //"marked": false,
     "accounting": false,
+    "AntiModals": false,
 
     // app globals
     "app": false,
