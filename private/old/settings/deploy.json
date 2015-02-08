@@ -1,0 +1,17 @@
+{
+  "cards": [
+    {"designation":"Sacha Williams", "lastDigits": "675","description":"Petty Cash Card"},
+    {"designation":"Anthea Robinson", "lastDigits": "821","description":"Petty Cash Card"}
+  ],
+  "googleLogin": {
+    "clientId": "687661022765-rd040mfq91a3kgjr9m0n3sho5v4crbql.apps.googleusercontent.com",
+    "secret": "V4Qz7jllu7-xXCKb1A5IoxOu"
+  },
+  "S3" : {
+    "region" : "ap-southeast-2",
+    "bucket" : "accounts-receipts",
+    "accessKeyId" : "AKIAJ767NES5JIVCDU4A",
+    "secretAccessKey" : "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",
+    "ACL" : "public-read"
+  }
+}

@@ -4,21 +4,20 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-bootstrap-flatly
-autoform
-collection2
-accounts-ui
-accounts-google
-user-session
-service-configuration
-iron-router
-accounts-entry
-moment
-handlebar-helpers
-underscore-string-latest
-collectionFS
-cfs-s3
-Dropzonejs
-cfs-gridfs
-chance
-font-awesome
+# autoform
+# collection2
+# accounts-ui
+# accounts-google
+# user-session
+# service-configuration
+# iron-router
+# accounts-entry
+# moment
+# handlebar-helpers
+# underscore-string-latest
+# Dropzonejs
+# collectionFS
+# cfs-s3
+# cfs-gridfs
+# chance
+# font-awesome
