@@ -21,3 +21,6 @@ standard-app-packages
 # cfs-gridfs
 # chance
 # font-awesome
+fezvrasta:bootstrap-material-design
+fortawesome:fontawesome
+fredstrange:sidr
