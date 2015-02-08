@@ -1,3 +1,11 @@
+.no-top-margin {
+  margin-top:0px;
+}
+
+.no-bottom-margin: {
+  margin-bottom: 0px;
+}
+
 .label-total {
   font-size: large;
   margin-top: 11.5px;
@@ -11,4 +19,10 @@
   margin-bottom: 0;
   /*font-size: 15px;*/
   color: inherit;
+}
+.help-button {
+  position: fixed;
+  top: 70px;
+  right: 5px;
+  z-index: 500;
 }

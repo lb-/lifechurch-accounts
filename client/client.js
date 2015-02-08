@@ -13,6 +13,13 @@ Template.registerHelper('formatDenomination', function (amt) {
   return (amt * 100) + 'c';
 });
 
+Template.helpButton.events({
+  'click [data-action="help"]': function (event) {
+    event.preventDefault();
+    AntiModals.overlay('help');
+  },
+});
+
 Template.pageHeader.rendered = function () {
   $('[data-action="toggle-menu"]').sidr({
     name: 'main-menu',
