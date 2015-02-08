@@ -8,7 +8,7 @@ Template.registerHelper('formatMoney', function (amt) {
 });
 Template.registerHelper('formatDenomination', function (amt) {
   if (amt >= 1.0) {
-    return accounting.formatMoney(amt);
+    return accounting.formatMoney(amt).replace('.00', '');
   }
   return (amt * 100) + 'c';
 });
